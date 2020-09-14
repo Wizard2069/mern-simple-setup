@@ -35,9 +35,7 @@ $ npm install
 $ npm run start:dev
 ```
 
-Database 
-
-Require MongoDB in local environment to run.
+Database (Require MongoDB in local environment to run)
 
 Create an .env file with following content in server-nest folder:
 
