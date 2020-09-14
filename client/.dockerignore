@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+coverage
+.prettierrc
+.git
+.gitignore
+LICENSE
+VERSION
+README.md
+Changelog.md
+docker-compose.yml

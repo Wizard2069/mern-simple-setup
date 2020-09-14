@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  db:
+    hostname: localhost
+    image: mongo
+    volumes:
+      - data-volume:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+  server:
+    container_name: server-nest
+    build:
+      context: ./server-nest 
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server-nest:/server
+    networks:
+      - app-network
+    dns_search: ''
+  client:
+    container_name: client
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
+    depends_on:
+      - server
+    links:
+      - server
+    volumes:
+      - ./client:/client
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    stdin_open: true
+networks:
+    app-network:
+      driver: bridge
+volumes:
+    data-volume:
+    node-modules:
+    web-root:
+      driver: local
