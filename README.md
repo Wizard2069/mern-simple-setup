@@ -32,6 +32,6 @@ Server-side
 ```sh
 $ cd server-nest
 $ npm install 
-$ npm start:dev
+$ npm run start:dev
 ```
 
